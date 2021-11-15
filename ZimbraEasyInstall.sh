@@ -522,7 +522,7 @@ if [[ "$Server_OS" = "CentOS" ]] ; then
 		;
 		@     IN      NS      ns1.${DOMAIN}.
 		@     IN      A      $IP
-		@     IN      MX     10     $HOSTNAME.${DOMAIN}.
+		@     IN      MX     10     $HOSTNAME.
 		$HOSTNAME     IN      A      $IP
 		ns1     IN      A      $IP
 		mail     IN      A      $IP
@@ -552,8 +552,8 @@ else
 	server=8.8.8.8
 	listen-address=127.0.0.1
 	domain=${DOMAIN}
-	mx-host=${DOMAIN},$HOSTNAME.${DOMAIN},0
-	address=/$HOSTNAME.${DOMAIN}/${IP}
+	mx-host=${DOMAIN},$HOSTNAME,0
+	address=/$HOSTNAME/${IP}
 	EOL
     systemctl enable dnsmasq && systemctl start dnsmasq
 fi
